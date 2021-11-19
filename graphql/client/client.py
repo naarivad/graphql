@@ -7,7 +7,7 @@ from .http import HTTPClient
 class Client:
     """The base class for interaction with a GraphQL API."""
 
-    __slots__ = ("_http",)
+    __slots__ = ('_http',)
 
     def __init__(self, *, session: ClientSession, url: str):
         self._http = HTTPClient(session, url)
@@ -18,5 +18,5 @@ class Client:
 
 
 __all__ = [
-    "Client",
+    'Client',
 ]

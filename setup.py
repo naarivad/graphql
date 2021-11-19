@@ -18,8 +18,10 @@ packages = [
     'graphql.client',
 ]
 
-_version_regex = re.compile(r'^__version__\s*=\s*["\']((?:[0-9]+\.)*[0-9]+(?:\.?([a-z]+)(?:\.?[0-9])?)?)["\']$',
-                            re.MULTILINE)
+_version_regex = re.compile(
+    r'^__version__\s*=\s*["\']((?:[0-9]+\.)*[0-9]+(?:\.?([a-z]+)(?:\.?[0-9])?)?)["\']$',
+    re.MULTILINE,
+)
 
 with open('graphql/__init__.py') as file:
     match = _version_regex.search(file.read())

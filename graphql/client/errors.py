@@ -5,7 +5,7 @@ from typing import Optional
 class ClientError(Exception):
     """The base exception class for the GraphQL client."""
 
-    __slots__ = ("message",)
+    __slots__ = ('message',)
 
     def __init__(self, message: str):
         self.message = message
@@ -16,18 +16,18 @@ class ClientError(Exception):
 class ClientResponseError(ClientError):
     """Represents an error in a response."""
 
-    __slots__ = ("response",)
+    __slots__ = ('response',)
 
     def __init__(self, message: str, response: ClientResponse):
         self.response = response
 
-        super().__init__(f"{response.status}: {message}")
+        super().__init__(f'{response.status}: {message}')
 
 
 class ClientResponseHTTPError(ClientResponseError):
     """Represents an error in an HTTP response."""
 
-    __slots__ = ("data",)
+    __slots__ = ('data',)
 
     def __init__(self, message: str, response: ClientResponse, data: Optional[dict]):
         self.data = data
@@ -38,7 +38,7 @@ class ClientResponseHTTPError(ClientResponseError):
 class ClientResponseGraphQLError(ClientResponseError):
     """Represents an error in a GraphQL response."""
 
-    __slots__ = ("data",)
+    __slots__ = ('data',)
 
     def __init__(self, message: str, response: ClientResponse, data: dict):
         self.data = data
@@ -53,9 +53,9 @@ class ClientResponseGraphQLValidationError(ClientResponseGraphQLError):
 
 
 __all__ = [
-    "ClientError",
-    "ClientResponseError",
-    "ClientResponseHTTPError",
-    "ClientResponseGraphQLError",
-    "ClientResponseGraphQLValidationError",
+    'ClientError',
+    'ClientResponseError',
+    'ClientResponseHTTPError',
+    'ClientResponseGraphQLError',
+    'ClientResponseGraphQLValidationError',
 ]

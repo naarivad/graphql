@@ -5,7 +5,7 @@ import graphql
 
 
 class HTTPClient:
-    __slots__ = ("session", "url")
+    __slots__ = ('session', 'url')
 
     def __init__(self, session: aiohttp.ClientSession, url: str):
         self.session = session
@@ -16,11 +16,11 @@ class HTTPClient:
     ):
         # region internal
 
-        _data_validate = kwargs.pop("_data_validate", None)
+        _data_validate = kwargs.pop('_data_validate', None)
 
         # endregion
 
-        json = kwargs.pop("json", None) or dict()
+        json = kwargs.pop('json', None) or dict()
 
         # NOTE: The GraphQL specification is not able to mandate HTTP
         #       parameters, but the following is described as standard
@@ -40,13 +40,13 @@ class HTTPClient:
         #         operationName is only required if multiple operations
         #         are present in the query.
 
-        json["query"] = __document
+        json['query'] = __document
 
         if __operation:
-            json["operationName"] = __operation
+            json['operationName'] = __operation
 
         if __variables:
-            json["variables"] = __variables
+            json['variables'] = __variables
 
         # NOTE: The GraphQL specification is not able to mandate HTTP
         #       methods, but GET and POST are the only methods
@@ -64,7 +64,7 @@ class HTTPClient:
 
                     try:
                         data = await resp.json()
-                        message = data["message"]
+                        message = data['message']
                     except (aiohttp.ContentTypeError, KeyError):
                         data = None
                         message = resp.reason
@@ -93,7 +93,7 @@ class HTTPClient:
             #       present.
 
             try:
-                errors = data["errors"]
+                errors = data['errors']
             except KeyError:
                 errors = None
 
@@ -109,7 +109,7 @@ class HTTPClient:
                     #         as a guide to understand and correct the
                     #         error.
 
-                    message = error["message"]
+                    message = error['message']
 
                     exceptions.append(
                         graphql.client.ClientResponseGraphQLError(message, resp, data)
@@ -123,19 +123,19 @@ class HTTPClient:
             # region internal
 
             if _data_validate is not None:
-                exc_type, message = _data_validate(data["data"])
+                exc_type, message = _data_validate(data['data'])
 
                 if exc_type is None and message is not None:
                     exc_type = graphql.client.ClientResponseGraphQLValidationError
                 elif exc_type is not None and message is None:
-                    message = "data validation failed"
+                    message = 'data validation failed'
 
                 if exc_type is not None and message is not None:
                     raise exc_type(message, resp, data)
 
             # endregion
 
-            # NOTE: The GraphQL specification mandates that the "data" key
+            # NOTE: The GraphQL specification mandates that the 'data' key
             #       must be present when no error is encountered.
             #
             #       > If the data entry in the response is not present, the
@@ -144,7 +144,7 @@ class HTTPClient:
             #         contains should indicate why no data was able to be
             #         returned.
 
-            return data["data"]
+            return data['data']
 
 
 # mypy appeasement
@@ -154,5 +154,5 @@ class ClientResponseGraphQLErrorCollection(Exception):
 
 
 __all__ = [
-    "HTTPClient",
+    'HTTPClient',
 ]
