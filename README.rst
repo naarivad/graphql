@@ -1,8 +1,8 @@
 .. raw:: html
 
     <p align="center">
-       <a href="https://github.com/naarivad/graphql/actions?query=workflow%3AAnalyze+event%3Apush">
-            <img alt="Analyze Status" src="https://github.com/naarivad/graphql/workflows/Analyze/badge.svg?event=push" />
+       <a href="https://github.com/naarivad/graphql/actions?query=workflow%3AAnalyse+event%3Apush">
+            <img alt="Analyse Status" src="https://github.com/naarivad/graphql/workflows/Analyse/badge.svg?event=push" />
         </a>
 
         <a href="https://github.com/naarivad/graphql/actions?query=workflow%3ABuild+event%3Apush">
@@ -11,10 +11,6 @@
 
         <a href="https://github.com/naarivad/graphql/actions?query=workflow%3ACheck+event%3Apush">
             <img alt="Check Status" src="https://github.com/naarivad/graphql/workflows/Check/badge.svg?event=push" />
-        </a>
-
-        <a href="https://github.com/naarivad/graphql/actions?query=workflow%3ADeploy+event%3Apush">
-            <img alt="Deploy Status" src="https://github.com/naarivad/graphql/workflows/Deploy/badge.svg?event=push" />
         </a>
 
         <a href="https://github.com/naarivad/graphql/actions?query=workflow%3ALint+event%3Apush">
