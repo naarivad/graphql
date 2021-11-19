@@ -1,0 +1,20 @@
+# python
+__pycache__/
+
+# python distribution
+/build/
+/dist/
+/*.egg-info/
+
+# mypy
+.mypy-cache/
+
+# sphinx
+/docs/build/
+
+# venv
+venv/
+
+# editors
+.idea/
+.vscode/
