@@ -3,10 +3,10 @@ import collections
 from graphql import client
 
 
-__all__ = []
+__all__: list = []
 
 
-_VersionInfo = collections.namedtuple('_VersionInfo', 'major minor micro release serial')
+_VersionInfo = collections.namedtuple("_VersionInfo", "major minor micro release serial")
 
-__version__ = '0.1.0a'
-version_info = _VersionInfo(0, 1, 0, 'alpha', 0)
+__version__ = "0.1.0a"
+version_info = _VersionInfo(0, 1, 0, "alpha", 0)
