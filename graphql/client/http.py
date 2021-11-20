@@ -149,7 +149,7 @@ class HTTPClient:
 
 # mypy appeasement
 class ClientResponseGraphQLErrorCollection(Exception):
-    def __init__(self, exceptions: List[graphql.client.ClientResponseGraphQLError]):
+    def __init__(self, exceptions: list):
         pass
 
 
